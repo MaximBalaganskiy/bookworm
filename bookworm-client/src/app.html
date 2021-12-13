@@ -1,0 +1,37 @@
+<template>
+    <require from="./app.scss"></require>
+    <main>
+        <mdc-top-app-bar fixed style="z-index: 7">
+            <mdc-top-app-bar-row>
+                <mdc-top-app-bar-section start>
+                    <mdc-top-app-bar-title>Bookworm</mdc-top-app-bar-title>
+                </mdc-top-app-bar-section>
+                <mdc-top-app-bar-section end>
+                    <mdc-icon mdc-top-app-bar-action-item click.delegate="add()">add</mdc-icon>
+                    <mdc-icon mdc-top-app-bar-action-item click.delegate="refresh()">refresh</mdc-icon>
+                </mdc-top-app-bar-section>
+            </mdc-top-app-bar-row>
+        </mdc-top-app-bar>
+        <div mdc-top-app-bar-fixed-adjust class="table-container">
+            <span mdc-headline5>Top Writers by Average Rating</span>
+            <mdc-data-table>
+                <table>
+                    <thead>
+                        <th>Writer</th>
+                        <th class="rating">Rating</th>
+                    </thead>
+                    <tbody>
+                        <tr mdc-data-table-row repeat.for="a of authors">
+                            <td>${a.name}</td>
+                            <td title.bind="a.rating">
+                                <span repeat.for="i of [1,2,3,4,5]" class="material-icons mdc-theme--secondary">
+                                    ${a.rating >= i ? 'star' : 'star_border'}
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mdc-data-table>
+        </div>
+    </main>
+</template>

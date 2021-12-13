@@ -1,0 +1,37 @@
+<template>
+    <require from="./add-rating-dialog.scss"></require>
+    <mdc-dialog view-model.ref="dialog" class="add-rating-dialog">
+        <mdc-dialog-title>Add rating</mdc-dialog-title>
+        <mdc-dialog-content>
+            <mdc-layout-grid no-padding>
+                <mdc-layout-grid-inner>
+                    <mdc-layout-grid-cell span="12">
+                        <mdc-text-field label="Writer" value.bind="rating.author & validate"></mdc-text-field>
+                        <mdc-text-field-helper-line></mdc-text-field-helper-line>
+                    </mdc-layout-grid-cell>
+                    <mdc-layout-grid-cell span="12">
+                        <mdc-text-field label="Book title" value.bind="rating.title & validate"></mdc-text-field>
+                        <mdc-text-field-helper-line></mdc-text-field-helper-line>
+                    </mdc-layout-grid-cell>
+                    <mdc-layout-grid-cell span="12">
+                        <mdc-text-field label="ISBN" value.bind="rating.isbn"></mdc-text-field>
+                        <mdc-text-field-helper-line>
+                            <mdc-text-field-helper-text persistent>Optional</mdc-text-field-helper-text>
+                        </mdc-text-field-helper-line>
+                    </mdc-layout-grid-cell>
+                    <mdc-layout-grid-cell span="12" class="rating">
+                        <span repeat.for="i of [1,2,3,4,5]" class="star material-icons mdc-theme--secondary"
+                            click.delegate="rating.ratingValue = i">
+                            ${rating.ratingValue >= i ? 'star' : 'star_border'}
+                        </span>
+                    </mdc-layout-grid-cell>
+                </mdc-layout-grid-inner>
+            </mdc-layout-grid>
+        </mdc-dialog-content>
+        <mdc-dialog-actions>
+            <button mdc-button data-mdc-dialog-action="cancel">Cancel</button>
+            <button mdc-button data-mdc-dialog-button-default data-mdc-dialog-initial-focus
+                click.delegate="add()">Add</button>
+        </mdc-dialog-actions>
+    </mdc-dialog>
+</template>

@@ -1,0 +1,15 @@
+.add-rating-dialog {
+    .mdc-layout-grid__cell {
+        &:not(.rating) {
+            min-height: 75px;
+        }
+
+        .mdc-text-field {
+            width: 100%;
+        }
+
+        .star {
+            cursor: pointer;
+        }
+    }
+}
