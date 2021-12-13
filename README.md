@@ -27,6 +27,7 @@ Together these three components ensure that the solution is capable of satifsyin
 * Change Feed aggregation may introduce delays between a data event and aggregated data update.
 * The raw ratings data must be partitioned by an `Author` field. Additional Cosmos DB collections may be needed depending on further requirements.
 * A cloud first solution may incur significant costs if let to scale uncontrollably.
+* Unfortunately, deploy to Static Web App via CLI is not supported at the moment. The client is deployed to a storage based Static website instead.
 
 ## Further considerations
 
