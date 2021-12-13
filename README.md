@@ -52,6 +52,19 @@ In addition:
 
 ## Deploy
 
+Before running any scripts make sure you are authenticated on AZ CLI using
+
+```bash
+az login
+```
+
+and have selected the Azure Subscription you want to use for the deploy:
+
+```bash
+az account list --output table
+az account set --subscription "<YOUR SUBSCRIPTION NAME>"
+```
+
 Run `deploy.ps1` PowerShell script to build and deploy the solution to Azure.
 The `$NAME` variable will be used to name a number of resources in your subscriprion. Please set it to a unique value before running the script.
 A new app URL will be output to the console after a successful run.
