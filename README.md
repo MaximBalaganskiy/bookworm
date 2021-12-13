@@ -53,4 +53,5 @@ In addition:
 ## Deploy
 
 Run `deploy.ps1` PowerShell script to build and deploy the solution to Azure.
-The script will output a new app URL to the console after a successful run.
+The `$NAME` variable will be used to name a number of resources in your subscriprion. Please set it to a unique value before running the script.
+A new app URL will be output to the console after a successful run.
